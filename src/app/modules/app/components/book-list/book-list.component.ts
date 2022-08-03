@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Book} from "../../interfaces/book";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-book-list',
@@ -11,24 +11,18 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
   @Input() recommended: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit(): void {
     this.getBooks()
   }
 
-  getBooks(): void {
+  async getBooks(): Promise<void> {
     if (this.recommended) {
-      this.http.get<Book[]>('https://localhost:5000/api/recommended')
-        .subscribe(Response => {
-          this.books = Response.reverse();
-        })
+      this.books = await this.api.GetRecommended();
     } else {
-      this.http.get<Book[]>('https://localhost:5000/api/books')
-        .subscribe(Response => {
-          this.books = Response;
-        })
+      this.books = await this.api.GetBooks();
     }
   }
 }

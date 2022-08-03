@@ -32,3 +32,54 @@
   color: #8a8a8a;
   cursor: pointer;
 }
+
+.body {
+  text-align: left;
+  padding: 5px;
+}
+
+.body > .Cover {
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+div.RatingReviewsCount > span {
+  margin-right: 5px;
+}
+
+div.RatingReviewsCount {
+  position: absolute;
+  margin-top: 205px;
+  margin-left: 20px;
+}
+
+.Title {
+  font-weight: bold;
+  color: gray;
+  font-size: 25px;
+}
+
+.Content {
+  background: red;
+  height: 280px;
+  margin-top: 10px;
+  border-bottom: 2px solid gray;
+}
+
+.Reviews {
+  text-align: left;
+  padding: 5px;
+}
+
+.review {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+  padding: 7px 0;
+}
+
+.reviewer {
+  margin-bottom: 5px;
+  color: #565151;
+}

@@ -10,6 +10,7 @@ import {EditBookComponent} from './components/edit-book/edit-book.component';
 import {ViewBookComponent} from './components/view-book/view-book.component';
 import {FormsModule} from "@angular/forms";
 import {ShowHideModalBookService} from "./services/show-hide-modal-book.service";
+import {ApiService} from "./services/api.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {ShowHideModalBookService} from "./services/show-hide-modal-book.service"
     FormsModule,
     HttpClientModule
   ],
-  providers: [ShowHideModalBookService],
+  providers: [ShowHideModalBookService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

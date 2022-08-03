@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Book} from "../interfaces/book";
+import {BookDetail} from "../interfaces/book-detail";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShowHideModalBookService {
   public display: boolean = false
-  public book!: Book;
+  public book!: BookDetail;
 
   constructor() {
   }

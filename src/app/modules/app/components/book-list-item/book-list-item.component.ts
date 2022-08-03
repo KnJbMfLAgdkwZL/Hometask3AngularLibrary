@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from "../../interfaces/book";
 import {ShowHideModalBookService} from "../../services/show-hide-modal-book.service";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-book-list-item',
@@ -10,13 +11,14 @@ import {ShowHideModalBookService} from "../../services/show-hide-modal-book.serv
 export class BookListItemComponent implements OnInit {
   @Input() book!: Book;
 
-  constructor(public showHideModalBookService: ShowHideModalBookService) {
+  constructor(private api: ApiService, public showHideModalBookService: ShowHideModalBookService) {
   }
 
   ngOnInit(): void {
   }
 
-  onClickShow() {
+  async onClickShow() {
+    this.showHideModalBookService.book = await this.api.GetBookDetail(this.book.id)
     this.showHideModalBookService.display = !this.showHideModalBookService.display;
   }
 

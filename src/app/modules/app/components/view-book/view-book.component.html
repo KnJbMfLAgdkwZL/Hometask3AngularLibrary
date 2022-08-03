@@ -9,26 +9,32 @@
     <hr>
 
     <div class="body">
-      <input type="hidden" name="Id" value="Id"/>
 
-      <img id="Cover" src="" alt=""/>
+      <input type="hidden" name="Id" value="{{showHideModalBookService.book.id}}"/>
 
-      <div class="Rating">Rating</div>
-      <div class="ReviewsCount">ReviewsCount</div>
+      <img class="Cover" src="{{showHideModalBookService.book.cover}}" alt=""/>
 
-      <div class="Title">Title</div>
+      <div class="RatingReviewsCount">
+        <span class="Rating">Rating: {{showHideModalBookService.book.rating | number:'1.1-1'}}</span>
+        <span class="ReviewsCount">Reviews: {{showHideModalBookService.book.reviews.length}}</span>
+      </div>
 
-      <div class="Author">Author</div>
-      <div class="Genre">Genre</div>
+      <div class="Title">{{showHideModalBookService.book.title}}</div>
 
-      <div class="Content">Content</div>
+      <div class="AuthorGenre">
+        <span class="Author">{{showHideModalBookService.book.author}}</span>,
+        <span class="Genre">{{showHideModalBookService.book.author}}</span>
+      </div>
+
+      <div class="Content">{{showHideModalBookService.book.content}}</div>
     </div>
 
-    <hr>
     <div class="Reviews">
-
+      <div class="review" *ngFor="let review of showHideModalBookService.book.reviews">
+        <div class="reviewer">{{review.reviewer}}</div>
+        <div class="message">{{review.message}}</div>
+      </div>
     </div>
-
 
   </div>
 
