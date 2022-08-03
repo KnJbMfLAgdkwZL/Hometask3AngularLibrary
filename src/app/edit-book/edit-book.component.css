@@ -1,0 +1,13 @@
+.addBookForm{
+  border: 2px solid gray;
+  padding: 10px;
+}
+
+.addBookForm > .body > .row {
+  margin-bottom: 10px;
+}
+
+.addBookForm > .body > .row > .name {
+  min-width: 100px;
+  display: inline-block;
+}

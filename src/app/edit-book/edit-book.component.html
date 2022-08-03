@@ -1,0 +1,40 @@
+<form method="post" enctype="multipart/form-data" class="addBookForm">
+  <div class="title">Add Book</div>
+  <hr/>
+
+  <input type="hidden" name="Id" [(ngModel)]="Id" #IdInput/>
+
+  <div class="body">
+    <div class="row">
+      <span class="name">Title: </span>
+      <input type="text" placeholder="Title" name="Title" [(ngModel)]="Title" #TitleInput/>
+    </div>
+
+    <div class="row">
+      <span class="name">Cover: </span>
+      <input type="file" placeholder="Cover" name="Cover" [(ngModel)]="Cover" #CoverInput/>
+    </div>
+
+    <div class="row">
+      <span class="name">Genre: </span>
+      <input type="text" placeholder="Genre" name="Genre" [(ngModel)]="Genre" #GenreInput/>
+    </div>
+
+    <div class="row">
+      <span class="name">Author: </span>
+      <input type="text" placeholder="Author" name="Author"  [(ngModel)]="Author" #AuthorInput/>
+    </div>
+
+    <div class="row">
+      <span class="name">Content: </span>
+      <input type="text" placeholder="Content" name="Content" [(ngModel)]="Content" #ContentInput/>
+    </div>
+
+    <div class="row centre">
+      <input (click)="onSubmit()" type="submit" value="Add">
+      <button (click)="OnClickClear()">Clear</button>
+    </div>
+
+  </div>
+
+</form>

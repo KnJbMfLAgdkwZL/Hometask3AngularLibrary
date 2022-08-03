@@ -1,0 +1,35 @@
+.modalBookPage {
+  background: rgba(1, 1, 1, 0.50);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+
+}
+
+.modalBookPage > .BookPage {
+  background: white;
+  display: inline-block;
+  width: 800px;
+  min-height: 600px;
+  margin-top: 100px;
+  border: 2px solid lightgray;
+  padding: 5px;
+}
+
+.close-button {
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 2em;
+  line-height: 1;
+}
+
+.close-button {
+  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  color: #8a8a8a;
+  cursor: pointer;
+}
