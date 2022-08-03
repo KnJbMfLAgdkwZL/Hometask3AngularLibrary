@@ -8,11 +8,17 @@
   margin: 5px;
 }
 
-.cover {
+.coverWrapper {
   width: 100px;
   height: 100px;
+  display: inline-block;
   float: left;
-  margin-right: 5px;
+  text-align: center;
+}
+
+.cover {
+  max-width: 100px;
+  height: 100px;
   border-radius: 3px;
   border: 1px solid lightgray;
 }

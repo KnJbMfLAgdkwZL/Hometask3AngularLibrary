@@ -1,18 +1,31 @@
 <div class="modalBookPage" *ngIf="showHideModalBookService.display">
-
-  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-    <span aria-hidden="true" (click)="CloseClick()">&times;</span>
-  </button>
+  <div class="modalblack"
+       (click)="CloseClick()"
+       (mousedown)="CloseClick()"
+       (mouseup)="CloseClick()"
+  ></div>
 
   <div class="BookPage">
-    <h3>Details</h3>
+    <div>
+      <button class="close-button"
+              (click)="CloseClick()"
+              (mousedown)="CloseClick()"
+              (mouseup)="CloseClick()"
+              aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h3>Details</h3>
+    </div>
+
     <hr>
 
     <div class="body">
 
       <input type="hidden" name="Id" value="{{showHideModalBookService.book.id}}"/>
 
-      <img class="Cover" src="{{showHideModalBookService.book.cover}}" alt=""/>
+      <div class="coverWrapper">
+        <img class="Cover" src="{{showHideModalBookService.book.cover}}" alt=""/>
+      </div>
 
       <div class="RatingReviewsCount">
         <span class="Rating">Rating: {{showHideModalBookService.book.rating | number:'1.1-1'}}</span>
@@ -23,7 +36,7 @@
 
       <div class="AuthorGenre">
         <span class="Author">{{showHideModalBookService.book.author}}</span>,
-        <span class="Genre">{{showHideModalBookService.book.author}}</span>
+        <span class="Genre">{{showHideModalBookService.book.genre}}</span>
       </div>
 
       <div class="Content">{{showHideModalBookService.book.content}}</div>

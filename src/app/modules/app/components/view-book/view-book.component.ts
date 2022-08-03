@@ -14,6 +14,6 @@ export class ViewBookComponent implements OnInit {
   }
 
   CloseClick() {
-    this.showHideModalBookService.display = !this.showHideModalBookService.display;
+    this.showHideModalBookService.display = false;
   }
 }

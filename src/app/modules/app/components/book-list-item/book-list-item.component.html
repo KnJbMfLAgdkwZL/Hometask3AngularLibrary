@@ -3,7 +3,13 @@
     <button class="show" (click)="onClickShow()">👁</button>
     <button class="edit" (click)="onClickEdit()">✏️</button>
   </div>
-  <img class="cover" src="{{book.cover}}" alt="">
+
+  <div class="coverWrapper">
+    <img class="cover" src="{{book.cover}}" alt="">
+  </div>
+
+
+
   <div class="title">{{book.title}}</div>
   <div class="reviewsNumber">Review: {{book.reviewsNumber}}</div>
   <div class="rating">Rating: {{book.rating | number:'1.1-1'}}</div>

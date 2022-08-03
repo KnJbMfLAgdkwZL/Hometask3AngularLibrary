@@ -1,0 +1,10 @@
+.body {
+  text-align: center;
+
+}
+
+.content {
+  display: inline-block;
+  width: 1200px;
+  text-align: left;
+}

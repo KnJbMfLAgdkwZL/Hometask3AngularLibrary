@@ -1,18 +1,31 @@
 .modalBookPage {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+}
+
+.modalblack {
   background: rgba(1, 1, 1, 0.50);
+  z-index: -10;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
+
 }
 
 .modalBookPage > .BookPage {
   background: white;
   display: inline-block;
   width: 800px;
-  min-height: 600px;
+  height: 700px;
   margin-top: 100px;
   border: 2px solid lightgray;
   padding: 5px;
@@ -26,23 +39,34 @@
 }
 
 .close-button {
-  position: absolute;
   display: inline-block;
   z-index: 10;
   color: #8a8a8a;
   cursor: pointer;
+  float: right;
+  margin-top: -24px;
+  margin-right: -5px;
 }
 
 .body {
   text-align: left;
   padding: 5px;
+  border-bottom: 2px solid gray;
 }
 
-.body > .Cover {
+.coverWrapper {
+  width: 210px;
+  height: 210px;
+  display: inline-block;
   float: left;
+  text-align: center;
+}
+
+.Cover {
   height: 200px;
-  width: 200px;
-  margin-right: 10px;
+  max-width: 200px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
 }
 
 div.RatingReviewsCount > span {
@@ -51,7 +75,7 @@ div.RatingReviewsCount > span {
 
 div.RatingReviewsCount {
   position: absolute;
-  margin-top: 205px;
+  margin-top: 210px;
   margin-left: 20px;
 }
 
@@ -62,15 +86,22 @@ div.RatingReviewsCount {
 }
 
 .Content {
-  background: red;
   height: 280px;
   margin-top: 10px;
-  border-bottom: 2px solid gray;
+  display: inline-block;
+  width: 580px;
+  overflow: auto;
 }
 
 .Reviews {
   text-align: left;
   padding: 5px;
+  height: 245px;
+  max-height: 245px;
+  min-height: 245px;
+  width: 790px;
+  overflow: auto;
+  display: inline-block;
 }
 
 .review {

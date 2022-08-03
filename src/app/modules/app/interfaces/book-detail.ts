@@ -7,5 +7,6 @@ export interface BookDetail {
   cover: string
   rating: string
   content: string
+  genre: string
   reviews: Review[]
 }
