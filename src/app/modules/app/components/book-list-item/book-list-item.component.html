@@ -1,12 +1,10 @@
 <div class="book">
   <div class="controls">
-    <button class="show">👁</button>
-    <button class="edit">✏️</button>
+    <button class="show" (click)="onClickShow()">👁</button>
+    <button class="edit" (click)="onClickEdit()">✏️</button>
   </div>
   <img class="cover" src="{{book.cover}}" alt="">
   <div class="title">{{book.title}}</div>
   <div class="reviewsNumber">Review: {{book.reviewsNumber}}</div>
   <div class="rating">Rating: {{book.rating | number:'1.1-1'}}</div>
 </div>
-
-

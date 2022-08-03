@@ -14,9 +14,6 @@ export class EditBookComponent {
   Author: string = '';
   Genre: string = '';
 
-  constructor() {
-  }
-
   onSubmit() {
     let str = `Id: ${this.Id}
     Title: ${this.Title}

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Book} from "../interfaces/book";
+import {Book} from "../../interfaces/book";
 
 @Component({
   selector: 'app-book-list-item',
@@ -9,9 +9,12 @@ import {Book} from "../interfaces/book";
 export class BookListItemComponent implements OnInit {
   @Input() book!: Book;
 
-  constructor() {
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+  onClickShow() {
+  }
+
+  onClickEdit() {
   }
 }

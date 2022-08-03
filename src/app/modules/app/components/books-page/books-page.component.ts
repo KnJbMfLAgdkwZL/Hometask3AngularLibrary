@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-books-page',
@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./books-page.component.css']
 })
 export class BooksPageComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
   }
-
 }

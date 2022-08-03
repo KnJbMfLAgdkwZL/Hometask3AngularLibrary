@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Book} from "../interfaces/book";
+import {Book} from "../../interfaces/book";
 
 @Component({
   selector: 'app-book-list',
@@ -9,7 +9,6 @@ import {Book} from "../interfaces/book";
 })
 export class BookListComponent implements OnInit {
   books: Book[] = [];
-
   @Input() recommended: boolean = false;
 
   constructor(private http: HttpClient) {
@@ -32,6 +31,4 @@ export class BookListComponent implements OnInit {
         })
     }
   }
-
-
 }

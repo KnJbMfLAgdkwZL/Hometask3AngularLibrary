@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { BooksPageComponent } from './books-page/books-page.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookListItemComponent } from './book-list-item/book-list-item.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
-import { ViewBookComponent } from './view-book/view-book.component';
+import {AppComponent} from './modules/app/components/app/app.component';
+import {BooksPageComponent} from './modules/app/components/books-page/books-page.component';
+import {BookListComponent} from './modules/app/components/book-list/book-list.component';
+import {BookListItemComponent} from './modules/app/components/book-list-item/book-list-item.component';
+import {EditBookComponent} from './modules/app/components/edit-book/edit-book.component';
+import {ViewBookComponent} from './modules/app/components/view-book/view-book.component';
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
@@ -27,4 +27,5 @@ import {FormsModule} from "@angular/forms";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
