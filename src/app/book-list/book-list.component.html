@@ -1,11 +1,6 @@
-
-<table>
-  <tr *ngFor="let book of books">
-    <td>{{ book.id }}</td>
-    <td>{{ book.title }}</td>
-    <td>{{ book.author }}</td>
-    <td>{{ book.rating }}</td>
-    <td>{{ book.reviewsNumber }}</td>
-    <td>{{ book.cover }}</td>
-  </tr>
-</table>
+<div class="books">
+  <div *ngFor="let book of books">
+    <app-book-list-item [book]=book>
+    </app-book-list-item>
+  </div>
+</div>

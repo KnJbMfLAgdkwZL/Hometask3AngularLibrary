@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Book} from "../interfaces/book";
 
@@ -8,6 +8,9 @@ import {Book} from "../interfaces/book";
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
+  books: Book[] = [];
+
+  @Input() recommended: boolean = false;
 
   constructor(private http: HttpClient) {
   }
@@ -16,15 +19,19 @@ export class BookListComponent implements OnInit {
     this.getBooks()
   }
 
-  books: Book[] = [];
-
   getBooks(): void {
-    this.http.get<Book[]>('https://localhost:5000/api/books')
-      .subscribe(Response => {
-        this.books = Response;
-      })
+    if (this.recommended) {
+      this.http.get<Book[]>('https://localhost:5000/api/recommended')
+        .subscribe(Response => {
+          this.books = Response.reverse();
+        })
+    } else {
+      this.http.get<Book[]>('https://localhost:5000/api/books')
+        .subscribe(Response => {
+          this.books = Response;
+        })
+    }
   }
 
+
 }
-
-
