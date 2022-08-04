@@ -5,12 +5,9 @@ import {BookDetail} from "../Dto/book-detail";
   providedIn: 'root'
 })
 export class ShowEditBookService {
-  public display: boolean = false
+  public display: boolean = false;
   public book!: BookDetail;
-  public bookEdit!: BookDetail;
-
-  public title: string = '1212'
-
+  public bookEdit: BookDetail = new BookDetail;
 
   constructor() {
   }

@@ -2,37 +2,58 @@
   <div class="title">Add Book</div>
   <hr/>
 
-  <input type="hidden" name="Id" [(ngModel)]="Id" #IdInput/>
+  <input type="hidden" name="Id" value="{{showEditBook.bookEdit.id}}" #IdInput/>
 
   <div class="body">
-    <div class="row">
-      <span class="name">Title: </span>
-      <input type="text" placeholder="Title" value="{{showEditBook.title}}" name="Title"  #TitleInput/>
-    </div>
+    <div class="grid">
+      <div>
 
-    <div class="row">
-      <span class="name">Cover: </span>
-      <input type="file" placeholder="Cover" name="Cover" [(ngModel)]="Cover" #CoverInput/>
-    </div>
+        <div class="row">
+          <span class="name">Cover: </span>
+          <div class="coverImgWrapper">
+            <img class="coverImg" *ngIf="!showEditBook.bookEdit.cover" src="assets/empty.jpg" alt=""/>
+            <img class="coverImg" *ngIf="showEditBook.bookEdit.cover" src="{{showEditBook.bookEdit.cover}}" alt=""/>
+          </div>
+          <input name="imageUrl" #imageUrl class="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+          <input type="hidden" name="Cover" value="{{showEditBook.bookEdit.cover}}" #coverInput/>
+        </div>
 
-    <div class="row">
-      <span class="name">Genre: </span>
-      <input type="text" placeholder="Genre" name="Genre" [(ngModel)]="Genre" #GenreInput/>
-    </div>
 
-    <div class="row">
-      <span class="name">Author: </span>
-      <input type="text" placeholder="Author" name="Author" [(ngModel)]="Author" #AuthorInput/>
-    </div>
+        <div class="row">
+          <span class="name">Title: </span>
+          <input class="inputText" type="text" placeholder="Title" value="{{showEditBook.bookEdit.title}}" name="Title"
+                 #TitleInput/>
+        </div>
 
-    <div class="row">
-      <span class="name">Content: </span>
-      <input type="text" placeholder="Content" name="Content" [(ngModel)]="Content" #ContentInput/>
+        <div class="row">
+          <span class="name">Genre: </span>
+          <input class="inputText" type="text" placeholder="Genre" name="Genre" value="{{showEditBook.bookEdit.genre}}"
+                 #GenreInput/>
+        </div>
+
+        <div class="row">
+          <span class="name">Author: </span>
+          <input class="inputText" type="text" placeholder="Author" name="Author"
+                 value="{{showEditBook.bookEdit.author}}" #AuthorInput/>
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="row">
+          <span class="name">Content: </span>
+          <textarea placeholder="Content" name="Content" #ContentInput>{{showEditBook.bookEdit.content}}</textarea>
+        </div>
+
+      </div>
+
     </div>
 
     <div class="row centre">
-      <input (click)="onSubmit()" type="submit" value="Add">
-      <button (click)="OnClickClear()">Clear</button>
+      <button class="Edit" (click)="onSubmit()" *ngIf="showEditBook.bookEdit.id">Edit</button>
+      <button class="Add" (click)="onSubmit()" *ngIf="!showEditBook.bookEdit.id">Add</button>
+      <button class="Clear" (click)="OnClickClear()">Clear</button>
     </div>
 
   </div>

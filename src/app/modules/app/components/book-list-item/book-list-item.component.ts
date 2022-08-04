@@ -24,7 +24,5 @@ export class BookListItemComponent implements OnInit {
 
   async onClickEdit() {
     this.showEditBook.bookEdit = await this.api.GetBookDetail(this.book.id)
-    this.showEditBook.title = this.showEditBook.bookEdit.title
-
   }
 }

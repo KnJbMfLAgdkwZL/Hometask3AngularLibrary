@@ -1,13 +1,88 @@
-.addBookForm{
+.addBookForm {
   border: 2px solid gray;
   padding: 10px;
 }
 
-.addBookForm > .body > .row {
-  margin-bottom: 10px;
+.row {
+  margin-bottom: 20px;
 }
 
-.addBookForm > .body > .row > .name {
+.name {
   min-width: 100px;
   display: inline-block;
+}
+
+.inputText {
+  min-width: 400px;
+  display: inline-block;
+}
+
+.imageUrl {
+  /*width: 115px;*/
+}
+
+textarea {
+  height: 207px;
+  width: 645px;
+  resize: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.centre {
+  text-align: center;
+}
+
+button {
+  margin-right: 10px;
+  border: none;
+  padding: 5px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: 0 5px #777;
+  transform: translateY(1px);
+}
+
+button:hover {
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 19%)
+}
+
+.Add {
+  background-color: #008CBA;
+  color: #FFFFFF;
+}
+
+.Clear {
+  background: #e2b204;
+  color: #FFFFFF;
+}
+
+.Edit {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+.coverImgWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.coverImg {
+  max-width: 100px;
+  height: 100px;
+  padding: 0;
 }
