@@ -14,15 +14,22 @@ export class BookListComponent implements OnInit {
   constructor(private api: ApiService) {
   }
 
-  async ngOnInit(): Promise<void> {
-    await this.getBooks()
+  ngOnInit(): void {
+    this.getBooks()
+    this.api.RefreshRequired.subscribe(() => {
+      this.getBooks()
+    })
   }
 
-  async getBooks(): Promise<void> {
+  getBooks(): void {
     if (this.recommended) {
-      this.books = await this.api.GetRecommended();
+      this.api.GetRecommended().subscribe(result => {
+        this.books = result.reverse();
+      });
     } else {
-      this.books = await this.api.GetBooks();
+      this.api.GetBooks().subscribe(result => {
+        this.books = result;
+      });
     }
   }
 }

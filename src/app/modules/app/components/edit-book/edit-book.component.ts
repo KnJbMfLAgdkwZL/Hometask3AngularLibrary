@@ -1,7 +1,10 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, ViewChild} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {ShowEditBookService} from "../../services/show-edit-book.service";
 import {BookDetail} from "../../Dto/book-detail";
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-edit-book',
@@ -10,8 +13,21 @@ import {BookDetail} from "../../Dto/book-detail";
 })
 export class EditBookComponent {
   @ViewChild("imageUrl") imageUrl!: ElementRef;
+  public bookForm!: FormGroup;
 
-  constructor(private api: ApiService, public showEditBook: ShowEditBookService) {
+  constructor(
+    @Inject(DOCUMENT) private _document: Document,
+    private fb: FormBuilder,
+    private api: ApiService,
+    public showEditBook: ShowEditBookService
+  ) {
+    this.bookForm = this.fb.group({
+      Title: ['Title', [Validators.required, Validators.min(1)]],
+      Genre: ['Genre', [Validators.required]],
+      Author: ['Author', [Validators.required]],
+      Content: ['Content', [Validators.required]],
+      Cover: ['Cover', [Validators.required]]
+    })
   }
 
   OnClickClear() {
@@ -19,8 +35,27 @@ export class EditBookComponent {
     this.imageUrl.nativeElement.value = "";
   }
 
-  async onSubmit() {
-    await this.api.PostBookSave(this.showEditBook.bookEdit)
+  getFormErrors(form: FormGroup) {
+    const result: any = [];
+    Object.keys(form.controls).forEach(key => {
+      const formProperty = form.get(key)
+      if (!(formProperty && formProperty.errors)) return
+      if (formProperty instanceof FormGroup) result.push(...this.getFormErrors(formProperty))
+      const controlErrors: ValidationErrors = formProperty.errors
+      Object.keys(controlErrors).forEach(keyError => result.push(`${key}: ${keyError}`))
+    })
+    return result;
+  }
+
+  onSubmit() {
+    if (this.bookForm.invalid) {
+      alert(this.getFormErrors(this.bookForm))
+    } else {
+      this.api.PostBookSave(this.showEditBook.bookEdit).subscribe(result => {
+        this.OnClickClear()
+        alert(`Ok ID: ${result.id}`)
+      })
+    }
   }
 
   handleInputChange(e: any) {
