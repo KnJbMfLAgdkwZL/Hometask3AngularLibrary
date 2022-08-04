@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Book} from "../interfaces/book";
+import {Book} from "../Dto/book";
 import {lastValueFrom} from "rxjs";
-import {BookDetail} from "../interfaces/book-detail";
+import {BookDetail} from "../Dto/book-detail";
 
 @Injectable({
   providedIn: 'root'

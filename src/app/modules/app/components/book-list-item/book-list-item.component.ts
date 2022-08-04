@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Book} from "../../interfaces/book";
+import {Book} from "../../Dto/book";
 import {ShowEditBookService} from "../../services/show-edit-book.service";
 import {ApiService} from "../../services/api.service";
 
@@ -22,7 +22,9 @@ export class BookListItemComponent implements OnInit {
     this.showEditBook.display = !this.showEditBook.display;
   }
 
-  onClickEdit() {
-    //this.book.id
+  async onClickEdit() {
+    this.showEditBook.bookEdit = await this.api.GetBookDetail(this.book.id)
+    this.showEditBook.title = this.showEditBook.bookEdit.title
+
   }
 }

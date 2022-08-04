@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Book} from "../../interfaces/book";
+import {Book} from "../../Dto/book";
 import {ApiService} from "../../services/api.service";
 
 @Component({
@@ -14,8 +14,8 @@ export class BookListComponent implements OnInit {
   constructor(private api: ApiService) {
   }
 
-  ngOnInit(): void {
-    this.getBooks()
+  async ngOnInit(): Promise<void> {
+    await this.getBooks()
   }
 
   async getBooks(): Promise<void> {

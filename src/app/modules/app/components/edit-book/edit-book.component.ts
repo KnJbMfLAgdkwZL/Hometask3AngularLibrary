@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {ShowEditBookService} from "../../services/show-edit-book.service";
 
 @Component({
   selector: 'app-edit-book',
@@ -13,6 +15,9 @@ export class EditBookComponent {
   Content: string = '';
   Author: string = '';
   Genre: string = '';
+
+  constructor(private api: ApiService, public showEditBook: ShowEditBookService) {
+  }
 
   onSubmit() {
     let str = `Id: ${this.Id}
