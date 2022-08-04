@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ShowHideModalBookService} from "../../services/show-hide-modal-book.service";
+import {ShowEditBookService} from "../../services/show-edit-book.service";
 
 @Component({
   selector: 'app-view-book',
@@ -7,13 +7,13 @@ import {ShowHideModalBookService} from "../../services/show-hide-modal-book.serv
   styleUrls: ['./view-book.component.css']
 })
 export class ViewBookComponent implements OnInit {
-  constructor(public showHideModalBookService: ShowHideModalBookService) {
+  constructor(public showEditBook: ShowEditBookService) {
   }
 
   ngOnInit(): void {
   }
 
   CloseClick() {
-    this.showHideModalBookService.display = false;
+    this.showEditBook.display = false;
   }
 }

@@ -1,4 +1,4 @@
-<div class="modalBookPage" *ngIf="showHideModalBookService.display">
+<div class="modalBookPage" *ngIf="showEditBook.display">
   <div class="modalblack"
        (click)="CloseClick()"
        (mousedown)="CloseClick()"
@@ -21,29 +21,29 @@
 
     <div class="body">
 
-      <input type="hidden" name="Id" value="{{showHideModalBookService.book.id}}"/>
+      <input type="hidden" name="Id" value="{{showEditBook.book.id}}"/>
 
       <div class="coverWrapper">
-        <img class="Cover" src="{{showHideModalBookService.book.cover}}" alt=""/>
+        <img class="Cover" src="{{showEditBook.book.cover}}" alt=""/>
       </div>
 
       <div class="RatingReviewsCount">
-        <span class="Rating">Rating: {{showHideModalBookService.book.rating | number:'1.1-1'}}</span>
-        <span class="ReviewsCount">Reviews: {{showHideModalBookService.book.reviews.length}}</span>
+        <span class="Rating">Rating: {{showEditBook.book.rating | number:'1.1-1'}}</span>
+        <span class="ReviewsCount">Reviews: {{showEditBook.book.reviews.length}}</span>
       </div>
 
-      <div class="Title">{{showHideModalBookService.book.title}}</div>
+      <div class="Title">{{showEditBook.book.title}}</div>
 
       <div class="AuthorGenre">
-        <span class="Author">{{showHideModalBookService.book.author}}</span>,
-        <span class="Genre">{{showHideModalBookService.book.genre}}</span>
+        <span class="Author">{{showEditBook.book.author}}</span>,
+        <span class="Genre">{{showEditBook.book.genre}}</span>
       </div>
 
-      <div class="Content">{{showHideModalBookService.book.content}}</div>
+      <div class="Content">{{showEditBook.book.content}}</div>
     </div>
 
     <div class="Reviews">
-      <div class="review" *ngFor="let review of showHideModalBookService.book.reviews">
+      <div class="review" *ngFor="let review of showEditBook.book.reviews">
         <div class="reviewer">{{review.reviewer}}</div>
         <div class="message">{{review.message}}</div>
       </div>

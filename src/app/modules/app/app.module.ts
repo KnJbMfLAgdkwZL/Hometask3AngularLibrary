@@ -9,7 +9,7 @@ import {BookListItemComponent} from './components/book-list-item/book-list-item.
 import {EditBookComponent} from './components/edit-book/edit-book.component';
 import {ViewBookComponent} from './components/view-book/view-book.component';
 import {FormsModule} from "@angular/forms";
-import {ShowHideModalBookService} from "./services/show-hide-modal-book.service";
+import {ShowEditBookService} from "./services/show-edit-book.service";
 import {ApiService} from "./services/api.service";
 
 @NgModule({
@@ -26,7 +26,7 @@ import {ApiService} from "./services/api.service";
     FormsModule,
     HttpClientModule
   ],
-  providers: [ShowHideModalBookService, ApiService],
+  providers: [ShowEditBookService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

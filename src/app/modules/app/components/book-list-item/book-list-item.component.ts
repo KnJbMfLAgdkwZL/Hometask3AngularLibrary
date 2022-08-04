@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from "../../interfaces/book";
-import {ShowHideModalBookService} from "../../services/show-hide-modal-book.service";
+import {ShowEditBookService} from "../../services/show-edit-book.service";
 import {ApiService} from "../../services/api.service";
 
 @Component({
@@ -11,17 +11,18 @@ import {ApiService} from "../../services/api.service";
 export class BookListItemComponent implements OnInit {
   @Input() book!: Book;
 
-  constructor(private api: ApiService, public showHideModalBookService: ShowHideModalBookService) {
+  constructor(private api: ApiService, public showEditBook: ShowEditBookService) {
   }
 
   ngOnInit(): void {
   }
 
   async onClickShow() {
-    this.showHideModalBookService.book = await this.api.GetBookDetail(this.book.id)
-    this.showHideModalBookService.display = !this.showHideModalBookService.display;
+    this.showEditBook.book = await this.api.GetBookDetail(this.book.id)
+    this.showEditBook.display = !this.showEditBook.display;
   }
 
   onClickEdit() {
+    //this.book.id
   }
 }
