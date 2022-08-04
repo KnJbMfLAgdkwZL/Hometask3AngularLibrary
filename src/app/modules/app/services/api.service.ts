@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Book} from "../Dto/book";
 import {lastValueFrom} from "rxjs";
 import {BookDetail} from "../Dto/book-detail";
+import {Id} from "../Dto/id";
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class ApiService {
 
   async GetBookDetail(id: number): Promise<BookDetail> {
     return await lastValueFrom(this.http.get<BookDetail>(`${this.baseUrl}/books/${id}`));
+  }
+
+  async PostBookSave(book: BookDetail): Promise<Id> {
+    return await lastValueFrom(this.http.post<Id>(`${this.baseUrl}/books/save`, book))
   }
 }

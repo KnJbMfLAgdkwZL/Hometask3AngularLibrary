@@ -14,26 +14,31 @@
             <img class="coverImg" *ngIf="!showEditBook.bookEdit.cover" src="assets/empty.jpg" alt=""/>
             <img class="coverImg" *ngIf="showEditBook.bookEdit.cover" src="{{showEditBook.bookEdit.cover}}" alt=""/>
           </div>
-          <input name="imageUrl" #imageUrl class="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+          <input name="imageUrl" #imageUrl class="imageUrl" type="file" accept="image/*"
+                 (change)="handleInputChange($event)"/>
           <input type="hidden" name="Cover" value="{{showEditBook.bookEdit.cover}}" #coverInput/>
         </div>
 
-
         <div class="row">
           <span class="name">Title: </span>
-          <input class="inputText" type="text" placeholder="Title" value="{{showEditBook.bookEdit.title}}" name="Title"
+          <input class="inputText" type="text" placeholder="Title"
+                 [(ngModel)]="showEditBook.bookEdit.title"
+                 value=showEditBook.bookEdit.title name="Title"
                  #TitleInput/>
         </div>
 
         <div class="row">
           <span class="name">Genre: </span>
-          <input class="inputText" type="text" placeholder="Genre" name="Genre" value="{{showEditBook.bookEdit.genre}}"
+          <input class="inputText" type="text" placeholder="Genre" name="Genre"
+                 [(ngModel)]="showEditBook.bookEdit.genre"
+                 value="{{showEditBook.bookEdit.genre}}"
                  #GenreInput/>
         </div>
 
         <div class="row">
           <span class="name">Author: </span>
           <input class="inputText" type="text" placeholder="Author" name="Author"
+                 [(ngModel)]="showEditBook.bookEdit.author"
                  value="{{showEditBook.bookEdit.author}}" #AuthorInput/>
         </div>
 
@@ -43,7 +48,9 @@
 
         <div class="row">
           <span class="name">Content: </span>
-          <textarea placeholder="Content" name="Content" #ContentInput>{{showEditBook.bookEdit.content}}</textarea>
+          <textarea placeholder="Content" name="Content"
+                    [(ngModel)]="showEditBook.bookEdit.content"
+                    #ContentInput>{{showEditBook.bookEdit.content}}</textarea>
         </div>
 
       </div>

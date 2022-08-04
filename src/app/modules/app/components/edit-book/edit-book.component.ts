@@ -9,17 +9,18 @@ import {BookDetail} from "../../Dto/book-detail";
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent {
+  @ViewChild("imageUrl") imageUrl!: ElementRef;
+
   constructor(private api: ApiService, public showEditBook: ShowEditBookService) {
   }
-
-  onSubmit() {
-  }
-
-  @ViewChild("imageUrl") imageUrl!: ElementRef;
 
   OnClickClear() {
     this.showEditBook.bookEdit = new BookDetail()
     this.imageUrl.nativeElement.value = "";
+  }
+
+  async onSubmit() {
+    await this.api.PostBookSave(this.showEditBook.bookEdit)
   }
 
   handleInputChange(e: any) {

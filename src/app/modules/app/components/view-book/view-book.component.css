@@ -1,5 +1,5 @@
 .modalBookPage {
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 0;
   bottom: 0;
@@ -12,7 +12,7 @@
 .modalblack {
   background: rgba(1, 1, 1, 0.50);
   z-index: -10;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
